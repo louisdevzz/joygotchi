@@ -11,6 +11,8 @@ const Silkscreen = FontSilkscreen({
 
 const Header = () =>{
     const [account,setAccount] = useState<string|null>(null);
+    const namePet = localStorage.getItem("namePet")??"-";
+    const seconds = Number(localStorage.getItem("seconds"))??0;
 
     const instantSignin = async () => {
         const here = await HereWallet.connect();
@@ -35,7 +37,7 @@ const Header = () =>{
                         <p className="text-[#fff]">19000</p>
                     </div>
                 </div>
-                <p className="text-[#fff] text-xl mt-2 ml-5">Pet #231</p>
+                <p className="text-[#fff] mt-2 ml-5">{namePet}</p>
                 <div className="flex flex-row gap-4 mt-5 items-center">
                 {
                     account?(
@@ -52,7 +54,7 @@ const Header = () =>{
             </div>
             <div className="px-3 py-2 w-[150px] rounded-full text-center absolute top-2/3 left-1/3  h-10 bg-[#f48f59]">
                 {/* <span>0h:57m:35s</span> */}
-            <CountDownTimer seconds={30000}/>
+            <CountDownTimer seconds={seconds}/>
             </div>
         </div>
     )

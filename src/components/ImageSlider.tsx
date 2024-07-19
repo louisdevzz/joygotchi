@@ -1,18 +1,26 @@
 'use client'
 import { useEffect, useState } from "react";
 
-const ImageSlider = ({petList}:{petList: any}) =>{
+const ImageSlider = ({petList,changeName,setIndex}:{petList: any,changeName: any,setIndex:any}) =>{
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     const goToPrevious = () =>{
         const isFirstIndex = currentIndex == 0;
         const newIndex = isFirstIndex ? petList.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex)
+        setIndex(newIndex)
+        changeName(petList[newIndex].name)
+        localStorage.setItem("namePet",petList[newIndex].name)
+        localStorage.setItem("seconds",JSON.stringify(petList[newIndex].time_until_starving/10000000))
     }
     const goToNext = () =>{
         const isLastIndex = currentIndex == petList.length - 1;
         const newIndex = isLastIndex ? 0: currentIndex + 1;
         setCurrentIndex(newIndex)
+        setIndex(newIndex)
+        changeName(petList[newIndex].name)
+        localStorage.setItem("namePet",petList[newIndex].name)
+        localStorage.setItem("seconds",JSON.stringify(petList[newIndex].time_until_starving/10000000))
     }
     return(
         petList.length > 0 && <div>

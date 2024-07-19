@@ -27,7 +27,7 @@ const Footer = () =>{
         <div className="mt-2 w-full relative">
             <img width={200} height={100} className="w-full h-[108px]" src="/assets/background/frame_bottom.png" alt="frame" />
             <div className="absolute top-2 left-0 flex justify-center w-full">
-                <div className="flex flex-row gap-2 px-1 items-center">
+                <div className="flex flex-row gap-2 justify-between w-full px-2 items-center">
                     {ImageButton.map((btn:Button,i:number)=>(
                         <Link href={btn.url} key={i} onClick={()=>handleSelectIndex(i)}>
                             <img width={60} height={60} className={currentIndex==i?"w-[80px] h-[80px]":"w-[65px] h-[65px]"} src={btn.src} alt={btn.title} />
