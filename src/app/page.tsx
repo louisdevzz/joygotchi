@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
-import { Silkscreen as FontSilkscreen, Joan} from "next/font/google"
+import { Silkscreen as FontSilkscreen} from "next/font/google"
 import { HereWallet } from "@here-wallet/core";
 import ImageSlider from "@/components/ImageSlider";
 import CountDownTimer from "@/components/CountDownTimer";
@@ -47,6 +47,7 @@ const Home = () =>{
     //console.log("listpet",pets.data)
     setPetLists(pets.data)
     localStorage.setItem("namePet",pets.data[0].name)
+    localStorage.setItem("seconds",JSON.stringify(pets.data[0].time_until_starving/10000000))
   }
 
   const onBuyAccessory = async(itemId:any) =>{
