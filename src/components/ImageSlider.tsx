@@ -11,6 +11,7 @@ const ImageSlider = ({petList,changeName,setIndex}:{petList: any,changeName: any
         setIndex(newIndex)
         changeName(petList[newIndex].name)
         localStorage.setItem("namePet",petList[newIndex].name)
+        localStorage.setItem("indexPet",newIndex.toString())
         localStorage.setItem("seconds",JSON.stringify(petList[newIndex].time_until_starving/10000000))
     }
     const goToNext = () =>{
@@ -19,6 +20,7 @@ const ImageSlider = ({petList,changeName,setIndex}:{petList: any,changeName: any
         setCurrentIndex(newIndex)
         setIndex(newIndex)
         changeName(petList[newIndex].name)
+        localStorage.setItem("indexPet",newIndex.toString())
         localStorage.setItem("namePet",petList[newIndex].name)
         localStorage.setItem("seconds",JSON.stringify(petList[newIndex].time_until_starving/10000000))
     }

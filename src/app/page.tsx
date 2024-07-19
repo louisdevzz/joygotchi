@@ -135,7 +135,7 @@ const Home = () =>{
                         <span className="text-[#00000088]">STAR</span>
                     </div>
                 </div>
-                <div className="mt-3 flex flex-row w-full justify-center items-center gap-5">
+                <div className="mt-3 flex flex-row w-full justify-between items-center gap-5">
                     <button>
                       <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
                           <img width={20} src="/assets/items/water.png" alt="water" />
