@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Silkscreen as FontSilkscreen} from "next/font/google"
 import { HereWallet } from "@here-wallet/core";
+import ImageSlider from "@/components/ImageSlider";
 
 const Silkscreen = FontSilkscreen({
     subsets: ["latin"],
@@ -22,12 +23,17 @@ const Home = () =>{
     return format+".near"
   }
 
+  const petList = [
+    {url: "/assets/pet/pet.png", title:"pet_1"},
+    {url: "/assets/pet/pet.png", title:"pet_2"}
+  ]
+
   return(
     <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-        <div className="bg-[#e5f2f8] md:w-[380px] h-full">
+        <div className="bg-[#e5f2f8] w-[380px] h-full">
             <div className="border-b border-gray-300 h-20 w-full bg-[#2d3c53] relative">
                 <div className="flex flex-row justify-between px-2 py-2">
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1">
                         <div className="flex flex-row gap-2">
                             <img width={25} src="/assets/item/coin.png" alt="coin" />
                             <p className="text-[#fff]">0.01</p>
@@ -59,8 +65,15 @@ const Home = () =>{
             <div className="p-3">
                 <div className="mt-2">
                     <div className="w-full h-[250px] rounded-md flex justify-center flex-row relative">
-                        <img width={60} className="w-[300px] sm:w-full h-full rounded-md" src="/assets/background/screen_pet.png" alt="screen" />
-                        <img width={150} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/pet/pet.png" alt="pet" />
+                        <img width={60} className="w-full h-full rounded-md" src="/assets/background/screen_pet.png" alt="screen" />
+                        <div className="flex flex-row justify-between">
+                          {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 left-[70px] " src="/assets/icon/arrow_left.png" alt="arrow" /> */}
+                          {/* <img width={150} className="absolute top-1/2 left-[53%] transform -translate-x-1/2 -translate-y-1/2" src="/assets/pet/pet.png" alt="pet" /> */}
+                          <div className="absolute top-1/2 left-[53%] transform -translate-x-1/2 -translate-y-1/2">
+                            <ImageSlider sliders={petList}/>
+                          </div>
+                          {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 right-[60px] " src="/assets/icon/arrow_right.png" alt="arrow" /> */}
+                        </div>
                         {/* <p className="text-[#fff] font-semibold absolute top-3/4 mt-3 left-1/2 transform -translate-x-1/2 ">Pet Name</p> */}
                     </div>
                 </div>
@@ -82,25 +95,27 @@ const Home = () =>{
                         <span className="text-[#00000088]">STAR</span>
                     </div>
                 </div>
-                <div className="mt-3 flex flex-row w-full justify-center gap-5">
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
-                    <div className="bg-[#a9c6e4] p-3 w-12 h-12 rounded-lg">
-                        <img width={30} src="/assets/item/star.png" alt="star" />
-                    </div>
+                <div className="mt-3 flex flex-row w-full justify-center items-center gap-5">
+                    <button>
+                      <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
+                          <img width={20} src="/assets/items/water.png" alt="water" />
+                      </div>
+                    </button>
+                    <button>
+                      <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
+                          <img width={40} src="/assets/items/beef.png" alt="beef" />
+                      </div>
+                    </button>
+                    <button>
+                      <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
+                          <img width={40} src="/assets/items/shield.png" alt="shield" />
+                      </div>
+                    </button>
+                    <button>
+                      <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
+                          <img width={40} src="/assets/items/holy_water.png" alt="water" />
+                      </div>
+                    </button>
                 </div>
                 <div className="mt-3 bg-[#a9c6e4] w-full max-h-36 rounded-lg px-3 py-4">
                     <div className="flex flex-row justify-between w-full">
@@ -122,9 +137,9 @@ const Home = () =>{
                 <div className="absolute top-2 left-0 flex justify-center w-full">
                     <div className="flex flex-row gap-2 px-1 items-center">
                         <img width={60} className="w-[65px] h-[65px]" src="/assets/button/home.png" alt="button" />
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/backpack.png" alt="button" />
+                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/mining.png" alt="button" />
                         <img width={90} height={90} className="w-[90px] h-[90px]" src="/assets/button/attack.png" alt="button" />
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/house.png" alt="button" />
+                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/petlist.png" alt="button" />
                         <img width={60} className="w-[65px] h-[65px]" src="/assets/button/training.png" alt="button" />
                     </div>
                 </div>
