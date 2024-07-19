@@ -1,8 +1,16 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Silkscreen as FontSilkscreen} from "next/font/google"
 import { HereWallet } from "@here-wallet/core";
 import ImageSlider from "@/components/ImageSlider";
+import CountDownTimer from "@/components/CountDownTimer";
+import Footer from "@/components/Footer";
+import { providers, utils } from "near-api-js";
+import type {
+  AccountView,
+  CodeResult,
+} from "near-api-js/lib/providers/provider";
+import axios from "axios";
 
 const Silkscreen = FontSilkscreen({
     subsets: ["latin"],
@@ -11,6 +19,12 @@ const Silkscreen = FontSilkscreen({
 
 const Home = () =>{
   const [account,setAccount] = useState<string|null>(null);
+  const [petLists, setPetLists] = useState<any>([]);
+
+  useEffect(()=>{
+    FetchPet()
+  },[])
+
   const instantSignin = async () => {
     const here = await HereWallet.connect();
     const account = await here.signIn({ contractId: "social.near" });
@@ -24,9 +38,15 @@ const Home = () =>{
   }
 
   const petList = [
-    {url: "/assets/pet/pet.png", title:"pet_1"},
-    {url: "/assets/pet/pet.png", title:"pet_2"}
+    {url: "/assets/pet/gotchi.gif", title:"pet_1"},
+    {url: "/assets/pet/gotchi.gif", title:"pet_2"}
   ]
+
+  const FetchPet = async() =>{
+    const pets = await axios.get("/api/list_pet");
+    console.log("listpet",pets.data)
+    setPetLists(pets.data)
+  }
 
   return(
     <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
@@ -59,7 +79,8 @@ const Home = () =>{
                     </div>
                 </div>
                 <div className="px-3 py-2 w-[150px] rounded-full text-center absolute top-2/3 left-1/3  h-10 bg-[#f48f59]">
-                    <span>0h:57m:35s</span>
+                    {/* <span>0h:57m:35s</span> */}
+                  <CountDownTimer seconds={30000}/>
                 </div>
             </div>
             <div className="p-3">
@@ -69,8 +90,8 @@ const Home = () =>{
                         <div className="flex flex-row justify-between">
                           {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 left-[70px] " src="/assets/icon/arrow_left.png" alt="arrow" /> */}
                           {/* <img width={150} className="absolute top-1/2 left-[53%] transform -translate-x-1/2 -translate-y-1/2" src="/assets/pet/pet.png" alt="pet" /> */}
-                          <div className="absolute top-1/2 left-[53%] transform -translate-x-1/2 -translate-y-1/2">
-                            <ImageSlider sliders={petList}/>
+                          <div className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
+                            <ImageSlider petList={petLists}/>
                           </div>
                           {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 right-[60px] " src="/assets/icon/arrow_right.png" alt="arrow" /> */}
                         </div>
@@ -79,7 +100,7 @@ const Home = () =>{
                 </div>
                 <div className="mt-2 bg-[#a9c6e4] w-full flex-row flex justify-between rounded-lg px-3 py-4">
                     <div className="flex flex-col text-center">
-                        <p className="text-xl">0 ETH</p>
+                        <p className="text-xl">0 NEAR</p>
                         <span className="text-[#00000088]">REWARDS</span>
                     </div>
                     <div className="flex flex-col text-center">
@@ -132,18 +153,7 @@ const Home = () =>{
                     </div>
                 </div>
             </div>
-            <div className="mt-2 w-full relative">
-                <img width={200} height={100} className="w-full h-[108px]" src="/assets/background/frame_bottom.png" alt="frame" />
-                <div className="absolute top-2 left-0 flex justify-center w-full">
-                    <div className="flex flex-row gap-2 px-1 items-center">
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/home.png" alt="button" />
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/mining.png" alt="button" />
-                        <img width={90} height={90} className="w-[90px] h-[90px]" src="/assets/button/attack.png" alt="button" />
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/petlist.png" alt="button" />
-                        <img width={60} className="w-[65px] h-[65px]" src="/assets/button/training.png" alt="button" />
-                    </div>
-                </div>
-            </div>
+            <Footer/>
         </div>
     </div>
   )
