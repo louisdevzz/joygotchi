@@ -17,6 +17,7 @@
     "@tonconnect/ui-react": "^2.0.5",
     "axios": "^1.7.2",
     "eruda": "^3.0.1",
+    "fs": "0.0.1-security",
     "near-api-js": "^0.44.2",
     "next": "14.2.4",
     "normalize.css": "^8.0.1",

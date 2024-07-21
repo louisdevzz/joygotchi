@@ -30,7 +30,7 @@ const Footer = () =>{
                 <div className="flex flex-row gap-2 justify-between w-full px-2 items-center">
                     {ImageButton.map((btn:Button,i:number)=>(
                         <Link href={btn.url} key={i} onClick={()=>handleSelectIndex(i)}>
-                            <img width={60} height={60} className={currentIndex==i?"w-[80px] h-[80px]":"w-[65px] h-[65px]"} src={btn.src} alt={btn.title} />
+                            <img width={60} height={60} className={currentIndex==i?"w-[80px] h-[80px]":"w-[65px] h-[65px] focus:w-[80px] focus:h-[80px] hover:w-[80px] hover:h-[80px] transition-all delay-100"} src={btn.src} alt={btn.title} />
                         </Link>
                     ))}
                     {/* <img width={60} className="w-[65px] h-[65px]" src="/assets/button/home.png" alt="button" />

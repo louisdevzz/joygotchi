@@ -7,7 +7,8 @@ import CountDownTimer from "@/components/CountDownTimer";
 import Footer from "@/components/Footer";
 import axios from "axios";
 import {  utils } from "near-api-js";
-
+import { instantSignin } from "@/hooks/useSignIn";
+import Tabs from "@/components/Tabs";
 
 const Silkscreen = FontSilkscreen({
     subsets: ["latin"],
@@ -28,13 +29,8 @@ const Home = () =>{
     FetchPet();
   },[])
 
-  const instantSignin = async () => {
-    const here = await HereWallet.connect();
-    setHereWallet(here)
-    const account = await here.signIn({ contractId: "social.near" });
-    console.log(`Hello ${account}!`);
-  };
-  
+
+
   const truncateString = (str: string)=>{
     const format = str.replace(".near","");
     if(format.length > 6) return format.slice(0,2)+'...'+format.slice(-2)+".near";
@@ -136,7 +132,7 @@ const Home = () =>{
                         <span className="text-[#00000088]">STAR</span>
                     </div>
                 </div>
-                <div className="mt-3 flex flex-row w-full justify-between items-center gap-5">
+                {/* <div className="mt-3 flex flex-row w-full justify-between items-center gap-5">
                     <button>
                       <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
                           <img width={20} src="/assets/items/water.png" alt="water" />
@@ -171,7 +167,8 @@ const Home = () =>{
                             <span className="text-[#fff] font-semibold">BUY</span>
                         </button>
                     </div>
-                </div>
+                </div> */}
+                <Tabs/>
             </div>
             <Footer/>
         </div>

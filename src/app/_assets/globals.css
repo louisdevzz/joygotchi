@@ -13,3 +13,6 @@ button{
         width: 400px;
     }
 }
+.mg{
+    transform: rotateY(180deg);
+}

@@ -16,7 +16,7 @@ const Battle = () =>{
     const [petLists, setPetLists] = useState<any>([]);
     const [listOponent, setListOponent] = useState<any>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [currentIndexPet, setCurrentIndexPet] = useState<number>(Number(localStorage.getItem("indexPet"))??0);
+    const [currentIndexPet, setCurrentIndexPet] = useState<number>(0||Number(localStorage.getItem("indexPet")));
     const [isShow, setIsShow] = useState<boolean>(false);
     
     useEffect(()=>{
@@ -58,15 +58,17 @@ const Battle = () =>{
                                     )}
                                     <div className="flex flex-col">
                                         <p className="text-sm">{petLists[currentIndexPet].name}</p>
-                                        <div className="flex flex-col">
-                                            <small>ATK: 100</small>
-                                            <small>DEF: 100</small>
+                                        <div className="flex flex-row gap-3">
+                                            <div className="flex flex-col">
+                                                <small>ATK: 100</small>
+                                                <small>DEF: 100</small>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <small>Status: {petLists[currentIndexPet].status}</small>
+                                                <small>Score: {petLists[currentIndexPet].score}</small>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <small>Status: {petLists[currentIndexPet].status}</small>
-                                    <small>Score: {petLists[currentIndexPet].score}</small>
                                 </div>
                                 <button onClick={()=>setIsShow((prv)=>!prv)}>
                                     <img width={20} className="rotate-90" src="/assets/icon/arrow_right.png" alt="arrow" />
@@ -83,15 +85,17 @@ const Battle = () =>{
                                             <img className="-mt-2" width={62} src={`/assets/animation/${pet.category}/${pet.pet_evolution_phase}.gif`} alt="pet" />
                                             <div className="flex flex-col">
                                                 <p className="text-sm">{pet.name}</p>
-                                                <div className="flex flex-col">
-                                                    <small>ATK: 100</small>
-                                                    <small>DEF: 100</small>
+                                                <div className="flex flex-row gap-3">
+                                                    <div className="flex flex-col">
+                                                        <small>ATK: 100</small>
+                                                        <small>DEF: 100</small>
+                                                    </div>
+                                                    <div className="flex flex-col">
+                                                        <small>Status: {pet.status}</small>
+                                                        <small>Score: {pet.score}</small>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <small>Status: {pet.status}</small>
-                                            <small>Score: {pet.score}</small>
                                         </div>
                                     </div>
                                 ))}
@@ -100,9 +104,12 @@ const Battle = () =>{
                     }
                     <div className="mt-2">
                         <div className="w-full h-[200px] rounded-md flex justify-center flex-row relative">
-                            <img width={60} className="w-full h-full rounded-md" src="/assets/background/frame_battle.png" alt="screen" />
+                            <img width={60} className="w-full h-full rounded-md" src="/assets/background/battle.png" alt="screen" />
+                            {petLists.length > 0 &&(
+                                <img width={70} className="absolute -top-2 left-[12%]" src={`/assets/animation/${petLists[currentIndexPet].category}/${petLists[currentIndex].pet_evolution_phase}.gif`} alt="pet" />
+                            )}
                             <div className="flex flex-row justify-between">
-                                <div className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="absolute top-[52%] left-[63%] transform -translate-x-1/2 -translate-y-1/2">
                                     <BattleLayout petList={listOponent} setIndex={setCurrentIndex}/>
                                 </div>
                             </div>
@@ -126,26 +133,9 @@ const Battle = () =>{
                     <div className="mt-2 bg-[#a9c6e4] w-full px-3 rounded-lg text-black h-20">
                         <small>Attack Infomation</small>
                     </div>
-                    <div className="mt-2 border-2 border-gray-300 flex flex-row justify-between gap-5 w-full px-2 py-3 rounded-lg text-black">
-                        <button>
-                        <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
-                            <img width={20} src="/assets/items/water.png" alt="water" />
-                        </div>
-                        </button>
-                        <button>
-                        <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
-                            <img width={40} src="/assets/items/beef.png" alt="beef" />
-                        </div>
-                        </button>
-                        <button>
-                        <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
-                            <img width={40} src="/assets/items/shield.png" alt="shield" />
-                        </div>
-                        </button>
-                        <button>
-                        <div className="bg-[#a9c6e4] p-2 h-16 w-16 flex justify-center rounded-lg">
-                            <img width={40} src="/assets/items/holy_water.png" alt="water" />
-                        </div>
+                    <div className="mt-2 border-2 border-gray-300 flex flex-row justify-center gap-5 w-full px-2 py-3 rounded-lg text-black">
+                        <button className="bg-[#db4832] hover:bg-opacity-85 p-2 h-16 items-center w-24 flex justify-center rounded-lg">
+                            <span className="font-semibold text-lg text-[#fff]">Attack</span>
                         </button>
                     </div>
                 </div>
