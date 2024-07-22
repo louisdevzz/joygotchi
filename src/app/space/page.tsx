@@ -47,79 +47,47 @@ const Space = () =>{
                 <Header/>
                 <div className="h-full pb-16 text-black">
                     <div className="mt-8 px-2">
-                        <div className="px-3 py-2 h-16 text-black w-full flex justify-between rounded-lg border-2 border-[#2d3c53] bg-[#97b5d5] bg-opacity-40">
-                            <div className="flex flex-col">
-                                <span>Join to telegram</span>
-                                <small>referenced</small>
+                        <div className="px-3 py-2 items-center text-black w-full flex justify-between rounded-lg border-2 border-[#2d3c53] bg-[#97b5d5] bg-opacity-40">
+                            <div className="flex flex-col gap-1">
+                                <span>Peacekeepers</span>
+                                <span>ID: 3765</span>
                             </div>
-                            <span>ID: 90000</span>
-                        </div>
-                        <div className="border-2 border-[#304053] shadow-sm w-full h-60 rounded-lg mt-5">
-                            <div className="py-1 w-full rounded-t-md bg-[#304053] text-center">
-                                <span className="text-xl text-[#fff]">NFT REWARD</span>
-                            </div>
-                            <div className="px-3">
-                                <div className="mt-5 flex flex-row gap-5 items-center justify-between">
-                                    <div className="p-3 rounded-md border-2 border-[#304053] items-center flex justify-center">
-                                        <img width={90} height={90} src="/assets/animation/blackdragon/1.gif" alt="pet" />
-                                    </div>
-                                    <div className="border-t-2 border-[#304053] w-full text-black">
-                                        <div className="flex flex-col gap-2">
-                                            <div className="flex flex-row justify-between items-center">
-                                                <span className="text-[#00000075]">NAME</span>
-                                                <span>DRAGON BLACK</span>
-                                            </div>
-                                            <div className="flex flex-row justify-between items-center">
-                                                <span className="text-[#00000075]">Status</span>
-                                                <span>HAPPY</span>
-                                            </div>
-                                            <div className="flex flex-row justify-between items-center">
-                                                <span className="text-[#00000075]">TOB</span>
-                                                <span>3 HOURS</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div className="flex flex-col items-center gap-1">
+                                <div className="flex flex-row gap-2 items-center">
+                                    <img width={18} src="/assets/icon/planet.svg" alt="planet" />
+                                    <span>3674</span>
                                 </div>
-                                <div className="mt-3 border-t-2 border-[#304053] w-full "/>
-                                <div className="mt-1 flex flex-row justify-between items-center text-black">
-                                    <div className="flex flex-col">
-                                        <div className="flex flex-row justify-between items-center gap-3">
-                                            <span className="text-[#00000075]">POINTS</span>
-                                            <span>0</span>
-                                        </div>
-                                        <div className="flex flex-row justify-between items-center">
-                                            <span className="text-[#00000075]">LEVEL</span>
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <div className="flex flex-row justify-between items-center gap-2">
-                                            <span className="text-[#00000075]">STAR</span>
-                                            <span>0</span>
-                                        </div>
-                                        <div className="flex flex-row justify-between items-center gap-3">
-                                            <span className="text-[#00000075]">TOD</span>
-                                            <span>3h:40m:28s</span>
-                                        </div>
-                                    </div>
+                                <div className="bg-[#E5F2F8] bg-opacity-75 flex flex-row gap-1 px-2 py-1 rounded-full">
+                                    <img src="/assets/icon/ethereum.svg" alt="ethereum" />
+                                    <small className="text-black">45.000</small>
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-3">
-                            <span>Start in: 0h:00m:0s</span>
+                        <div className="mt-5 w-full flex justify-center">
+                            <img width={20} className="w-[60%]" src="/assets/nft/nft_1.gif" alt="nft" />
+                        </div>
+                        <div className="mt-5 flex flex-row gap-5 border-2 border-[#2d3c53] items-center w-full rounded-lg py-2 px-3">
+                            <img width={45} src="/assets/icon/diamond.svg" alt="diamond" />
+                            <div className="flex flex-col gap-1">
+                                <span>Starting in: 6h:45m:20s</span>
+                                <div>
+                                    <span className="text-[#6251A2]">Battle:</span>
+                                    <span className="ml-3">4 weeks</span>
+                                </div>
+                            </div>
                         </div>
                         <div className="mt-3 px-3 py-2 h-full text-black w-full flex justify-between rounded-lg border-2 border-[#2d3c53] bg-[#97b5d5] bg-opacity-40">
                             <div className="flex flex-row justify-between items-center w-full">
                                 <div className="flex flex-col gap-2 items-center">
                                     <small>100 token per space</small>
                                     <div className="flex flex-row justify-between gap-2 items-center h-10 w-full bg-[#8fa6ca] p-2 rounded-lg">
-                                        <div onClick={addSpace} className="bg-[#2d3c53] rounded-full w-7 h-7 flex items-center justify-center">
+                                        <div onClick={addSpace} className="bg-[#2d3c53] hover:bg-opacity-85 rounded-full w-7 h-7 flex items-center justify-center">
                                             <img width={20} src="/assets/icon/add.svg" alt="add" />
                                         </div>
                                         <div className="w-20">
                                             <input value={countSpace&&countSpace} onChange={(e)=>setCoutSpace(Number(e.target.value))} placeholder="0" className="w-full placeholder:text-[#2d3c539c] text-2xl bg-transparent text-center text-[#2d3c53] outline-none focus:outline-none px-2 py-1" type="text" />
                                         </div>
-                                        <div onClick={minusSpace} className="bg-[#2d3c53] rounded-full w-7 h-7 flex items-center justify-center">
+                                        <div onClick={minusSpace} className="bg-[#2d3c53] hover:bg-opacity-85 rounded-full w-7 h-7 flex items-center justify-center">
                                             <img width={20} src="/assets/icon/minus.svg" alt="minus" />
                                         </div>
                                     </div>
