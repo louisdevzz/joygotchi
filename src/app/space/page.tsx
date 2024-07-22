@@ -35,7 +35,7 @@ const Space = () =>{
 
     return(
         <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-            <div className="bg-[#e5f2f8] w-[390px] h-full">
+            <div className="bg-[#e5f2f8] md:w-[390px] h-full">
                 {status&&(
                     <div className="fixed z-50 bg-[#97b5d5] w-56 h-10 top-5 left-[52%] rounded-lg border-2 border-[#e5f2f8] shadow-sm transform -translate-x-1/2 transition-all delay-75">
                         <div className="flex flex-row w-full px-3 items-center h-full gap-2">

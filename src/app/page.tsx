@@ -58,7 +58,7 @@ const Home = () =>{
 
   return(
     <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-        <div className="bg-[#e5f2f8] w-[390px] md h-full">
+        <div className="bg-[#e5f2f8] md:w-[390px] md h-full">
             <Header />
             <div className="p-3">
                 <div className="mt-2">

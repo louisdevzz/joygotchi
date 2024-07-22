@@ -94,7 +94,7 @@ const Header = () =>{
                 </div>
                 <div className="px-3 py-2 w-[150px] rounded-full text-center absolute top-2/3 left-1/3  h-10 bg-[#f48f59]">
                     {/* <span>0h:57m:35s</span> */}
-                <CountDownTimer seconds={seconds}/>
+                    <CountDownTimer seconds={seconds}/>
                 </div>
             </div>
         </div>
