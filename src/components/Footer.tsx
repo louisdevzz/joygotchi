@@ -16,7 +16,7 @@ const Footer = () =>{
         {src: "/assets/button/mining.png",title: "mining", url: "/mint"},
         {src: "/assets/button/attack.png",title: "attack", url: "/battle"},
         {src: "/assets/button/petlist.png",title:"petlist", url: ""},
-        {src: "/assets/button/training.png",title: "training", url: ""},
+        {src: "/assets/button/training.png",title: "training", url: "/mission"},
     ]
 
     const handleSelectIndex = (i:number) =>{

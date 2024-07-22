@@ -9,6 +9,7 @@ import axios from "axios";
 import {  utils } from "near-api-js";
 import { instantSignin } from "@/hooks/useSignIn";
 import Tabs from "@/components/Tabs";
+import Header from "@/components/Header";
 
 const Silkscreen = FontSilkscreen({
     subsets: ["latin"],
@@ -28,15 +29,6 @@ const Home = () =>{
     localStorage.setItem("linkIndex",'0')
     FetchPet();
   },[])
-
-
-
-  const truncateString = (str: string)=>{
-    const format = str.replace(".near","");
-    if(format.length > 6) return format.slice(0,2)+'...'+format.slice(-2)+".near";
-    return format+".near"
-  }
-
 
   const FetchPet = async() =>{
     const pets = await axios.get("/api/list_pet");
@@ -66,39 +58,8 @@ const Home = () =>{
 
   return(
     <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-        <div className="bg-[#e5f2f8] md:w-[380px] md h-full">
-            <div className="border-b border-gray-300 h-20 w-full bg-[#2d3c53] relative">
-                <div className="flex flex-row justify-between px-2 py-2">
-                    <div className="flex flex-col gap-1">
-                        <div className="flex flex-row gap-2">
-                            <img width={25} src="/assets/item/coin.png" alt="coin" />
-                            <p className="text-[#fff]">0.01</p>
-                        </div>
-                        <div className="flex flex-row gap-2">
-                            <img width={25} src="/assets/item/credit_card.png" alt="coin" />
-                            <p className="text-[#fff]">19000</p>
-                        </div>
-                    </div>
-                    <p className="text-[#fff] mt-2 ml-5">{namePet}</p>
-                    <div className="flex flex-row gap-4 mt-5 items-center">
-                      {
-                        accountId?(
-                          <div className="px-2 py-0.5 h-8 rounded-full bg-[#a9c6e4]">
-                            <small className="">{truncateString("justonly.near")}</small>
-                          </div>
-                        ):(
-                          <button onClick={instantSignin} className="px-2 h-8 rounded-full bg-[#a9c6e4]">
-                            <small className="font-semibold">Connect</small>
-                          </button>
-                        )
-                      }
-                    </div>
-                </div>
-                <div className="px-3 py-2 w-[150px] rounded-full text-center absolute top-2/3 left-1/3  h-10 bg-[#f48f59]">
-                    {/* <span>0h:57m:35s</span> */}
-                  <CountDownTimer seconds={petLists.length > 0 ? petLists[index].time_until_starving/10000000:0}/>
-                </div>
-            </div>
+        <div className="bg-[#e5f2f8] w-[390px] md h-full">
+            <Header />
             <div className="p-3">
                 <div className="mt-2">
                     <div className="w-full h-[250px] rounded-md flex justify-center flex-row relative">
