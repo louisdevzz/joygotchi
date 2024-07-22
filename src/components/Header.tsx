@@ -41,7 +41,7 @@ const Header = () =>{
                 )}
             {
                 isShow&&(
-                    <div className="fixed h-screen w-full bg-black bg-opacity-25 z-40 overflow-hidden overscroll-none">
+                    <div className="fixed h-screen w-full bg-black bg-opacity-45 z-40 overflow-hidden overscroll-none">
                         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#e5f2f8] pb-5 w-[375px] rounded-lg">
                             <div className="flex flex-row justify-between items-center w-full bg-[#2d3c53] h-12 rounded-t-lg px-3">
                                 <span>Change Name Pet</span>
