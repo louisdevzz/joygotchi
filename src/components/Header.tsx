@@ -1,19 +1,27 @@
 'use client'
 import { useState } from "react";
-import CountDownTimer from "@/components/CountDownTimer";
 import { HereWallet } from "@here-wallet/core";
+import { initHere,signIn,signOut } from "@/hooks/useSignIn";
 
 const Header = () =>{
     const [account,setAccount] = useState<string|null>(null);
     const [isShow, setIsShow] = useState<boolean>(false);
     const [status, setStatus] = useState<string|null>(null);
     const namePet = localStorage.getItem("namePet")??"-";
-    const seconds = Number(localStorage.getItem("seconds"))??0;
+
+    let here: HereWallet;
 
     const instantSignin = async () => {
-        const here = await HereWallet.connect();
-        const account = await here.signIn({ contractId: "social.near" });
-        console.log(`Hello ${account}!`);
+        try{
+            here = await initHere();
+            if(!here) return;
+            if(await here.isSignedIn()) {
+                const accounts = await here.getAccounts(); // Ensure accounts are fetched correctly
+                console.log("account",accounts)
+            }
+        }catch(error){
+            console.log(error)
+        }
     };
     const truncateString = (str: string)=>{
         const format = str.replace(".near","");
@@ -30,7 +38,7 @@ const Header = () =>{
     }
 
     return(
-        <div>
+        <div className="sticky w-full top-0 z-10">
             {status&&(
                     <div className="fixed z-50 bg-[#97b5d5] w-60 h-10 top-5 left-[52%] rounded-lg border-2 border-[#e5f2f8] shadow-sm transform -translate-x-1/2 transition-all delay-75">
                         <div className="flex flex-row w-full px-3 items-center h-full gap-2">
@@ -92,10 +100,7 @@ const Header = () =>{
                     }
                     </div>
                 </div>
-                <div className="px-3 py-2 w-[150px] rounded-full text-center absolute top-2/3 left-1/3  h-10 bg-[#f48f59]">
-                    {/* <span>0h:57m:35s</span> */}
-                    <CountDownTimer seconds={seconds}/>
-                </div>
+                
             </div>
         </div>
     )

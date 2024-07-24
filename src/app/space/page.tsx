@@ -34,8 +34,8 @@ const Space = () =>{
     }
 
     return(
-        <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-            <div className="bg-[#e5f2f8] md:w-[390px] h-full">
+        <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full min-h-screen bg-[#b8e3f8]`}>
+            <div className="bg-[#e5f2f8] md:w-[390px] h-full max-w-[390px]">
                 {status&&(
                     <div className="fixed z-50 bg-[#97b5d5] w-56 h-10 top-5 left-[52%] rounded-lg border-2 border-[#e5f2f8] shadow-sm transform -translate-x-1/2 transition-all delay-75">
                         <div className="flex flex-row w-full px-3 items-center h-full gap-2">
@@ -45,7 +45,7 @@ const Space = () =>{
                     </div>
                 )}
                 <Header/>
-                <div className="h-full pb-16 text-black">
+                <div className="h-full text-black">
                     <div className="mt-8 px-2">
                         <div className="px-3 py-2 items-center text-black w-full flex justify-between rounded-lg border-2 border-[#2d3c53] bg-[#97b5d5] bg-opacity-40">
                             <div className="flex flex-col gap-1">

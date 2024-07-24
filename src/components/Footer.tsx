@@ -24,7 +24,7 @@ const Footer = () =>{
     }
 
     return(
-        <div className="mt-2 w-full relative">
+        <div className="mt-2 sticky w-full bottom-0">
             <img width={200} height={100} className="w-full h-[108px]" src="/assets/background/frame_bottom.png" alt="frame" />
             <div className="absolute top-2 left-0 flex justify-center w-full">
                 <div className="flex flex-row gap-2 justify-between w-full px-2 items-center">
@@ -33,11 +33,6 @@ const Footer = () =>{
                             <img width={60} height={60} className={currentIndex==i?"w-[80px] h-[80px]":"w-[65px] h-[65px] focus:w-[80px] focus:h-[80px] hover:w-[80px] hover:h-[80px] transition-all delay-100"} src={btn.src} alt={btn.title} />
                         </Link>
                     ))}
-                    {/* <img width={60} className="w-[65px] h-[65px]" src="/assets/button/home.png" alt="button" />
-                    <img width={60} className="w-[65px] h-[65px]" src="/assets/button/mining.png" alt="button" />
-                    <img width={90} height={90} className="w-[90px] h-[90px]" src="/assets/button/attack.png" alt="button" />
-                    <img width={60} className="w-[65px] h-[65px]" src="/assets/button/petlist.png" alt="button" />
-                    <img width={60} className="w-[65px] h-[65px]" src="/assets/button/training.png" alt="button" /> */}
                 </div>
             </div>
         </div>

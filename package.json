@@ -2,6 +2,7 @@
   "name": "nextjs-template",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "dev:https": "next dev --experimental-https",
@@ -11,18 +12,21 @@
   },
   "dependencies": {
     "@here-wallet/core": "^3.3.1",
+    "@near-wallet-selector/core": "^8.9.10",
+    "@near-wallet-selector/here-wallet": "^8.9.10",
+    "@near-wallet-selector/modal-ui": "^8.9.10",
     "@telegram-apps/react-router-integration": "^1.0.0",
     "@telegram-apps/sdk-react": "^1.0.0",
     "@telegram-apps/telegram-ui": "^2.1.5",
     "@tonconnect/ui-react": "^2.0.5",
     "axios": "^1.7.2",
     "D": "^1.0.0",
-    "eruda": "^3.0.1",
-    "fs": "0.0.1-security",
+    "eruda": "^3.2.1",
     "next": "14.2.4",
     "normalize.css": "^8.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "svelte": "^4.2.18"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -30,7 +34,6 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
-    "near-api-js": "^0.44.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

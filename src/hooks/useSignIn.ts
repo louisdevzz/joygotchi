@@ -1,17 +1,30 @@
-import { HereWallet } from "@here-wallet/core";
+import { HereWallet, HereKeyStore, HereAuthStorage, TelegramAppStrategy, HereInitializeOptions } from "@here-wallet/core";
 
-const instantSignin = async () => {
-    try {
-      const here = await HereWallet.connect({
-        botId: "dropjson_bot/Wallet", // Your bot MiniApp
-        walletId: "herewalletbot/app", // HOT Wallet
-      });
-      const account = await here.signIn({ contractId: "social.near" });
-      console.log(`Hello ${account}!`);
-    } catch (e) {
-      console.log(e);
-    }
+let wallet: HereWallet;
+let hereAuthStorage: HereAuthStorage;
 
+const initHere = async (): Promise<HereWallet>  => {
+  if (!hereAuthStorage) hereAuthStorage = new HereKeyStore();
+  const here = await HereWallet.connect({
+    authStorage: hereAuthStorage,
+    botId: "dropjson_bot/App", // Your bot MiniApp
+    walletId: "herewalletbot/app" //Hot wallet
+  });
+  wallet = here;
+  return here;
 };
 
-export {instantSignin}
+const signIn = async () : Promise<any> => {
+  const accountName = await wallet.signIn({ contractId: "social.near" });
+  return accountName;
+}
+
+const signOut = async() => {
+  await wallet.signOut();
+}
+
+export {
+  initHere,
+  signIn,
+  signOut
+}
