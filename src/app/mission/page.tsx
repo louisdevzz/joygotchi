@@ -15,7 +15,7 @@ const Silkscreen = FontSilkscreen({
 const Mission = () =>{
     return(
         <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-            <div className="bg-[#e5f2f8] md:w-[390px] h-full">
+            <div className="bg-[#e5f2f8] screen h-full">
                 <Header/>
                 <div className="h-full pb-52">
                     <div className="mt-8 px-2 flex flex-col gap-3">

@@ -81,7 +81,7 @@ const Home = () =>{
 
 return(
     <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full min-h-screen bg-[#b8e3f8]`}>
-        <div className="bg-[#e5f2f8] md:w-[390px] max-w-[390px] md h-full relative">
+        <div className="bg-[#e5f2f8] screen h-full relative flex justify-center flex-col">
             <div className="w-full h-full sticky top-0 z-20">
                 {status&&(
                         <div className="fixed z-50 bg-[#97b5d5] w-60 h-10 top-5 left-[52%] rounded-lg border-2 border-[#e5f2f8] shadow-sm transform -translate-x-1/2 transition-all delay-75">
@@ -150,7 +150,7 @@ return(
                     </div>
                 </div>
             </div>
-            <div className="h-full max-w-[390px] flex flex-col flex-1 relative">
+            <div className="h-full flex flex-col flex-1 relative">
                 <div className="p-3 h-full flex flex-col relative w-full">
                     <div className="flex flex-col">
                     <div className="mt-2 h-full">

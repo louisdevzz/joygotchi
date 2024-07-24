@@ -8,11 +8,68 @@ html{
 button{
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer;
 }
-.md{
+.screen{
+    width: 100%;
     @media screen and (min-width:560px) {
         width: 400px;
     }
 }
 .mg{
+    top: 30%;
+    left: 44%;
+    width: 90px;
     transform: rotateY(180deg);
+    @media screen and (min-width:560px) {
+        top:26%;
+        left: 50%;
+        width: 70px;
+    }
+}
+
+.responsive{
+    height: 250px;
+    @media screen and (min-width:560px) {
+        height: 160px;
+    }
+}
+
+.position{
+    top: 4%;
+    left: 11%;
+    @media screen and (min-width:560px) {
+        top: 4%;
+        left: 14%;
+    }
+}
+
+.pet{
+    width: 90px;
+    @media screen and (min-width:560px) {
+        width: 70px;
+    }
+}
+
+.arrow-left{
+    top: 40%;
+    left: -30px;
+    width: 1.3rem;
+    height: 1.3rem;
+    @media screen and (min-width:560px) {
+        top: 40%;
+        left: -40px;
+        width: 1rem;
+        height: 1rem;
+    }
+}
+.arrow-right{
+    top: 40%;
+    right: -30px;
+    width: 1.3rem;
+    height: 1.3rem;
+    @media screen and (min-width:560px) {
+        top: 40%;
+        right: -40px;
+        width: 1rem;
+        height: 1rem;
+    }
 }

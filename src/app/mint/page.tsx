@@ -14,7 +14,7 @@ const Mint = () =>{
 
     return(
         <div className={`${Silkscreen.className} flex flex-col justify-center items-center w-full h-full bg-[#b8e3f8]`}>
-            <div className="bg-[#e5f2f8] md:w-[380px] h-full">
+            <div className="bg-[#e5f2f8] screen h-full">
                 <Header/>
                 <div className="h-full">
                     <div className="mt-8 px-2">
