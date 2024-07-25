@@ -159,8 +159,8 @@ return(
                             <div className="flex flex-row justify-between">
                                 {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 left-[70px] " src="/assets/icon/arrow_left.png" alt="arrow" /> */}
                                 {/* <img width={150} className="absolute top-1/2 left-[53%] transform -translate-x-1/2 -translate-y-1/2" src="/assets/pet/pet.png" alt="pet" /> */}
-                                <div className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-1/2">
-                                <ImageSlider petList={petLists} changeName={setNamePet} setIndex={setIndex}/>
+                                <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
+                                    <ImageSlider petList={petLists} changeName={setNamePet} setIndex={setIndex}/>
                                 </div>
                                 {/* <img width={10} height={10} className="w-6 h-6 absolute top-1/2 right-[60px] " src="/assets/icon/arrow_right.png" alt="arrow" /> */}
                             </div>

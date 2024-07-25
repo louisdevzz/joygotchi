@@ -79,10 +79,10 @@ const Battle = () =>{
                                 <small>ATK: 100</small>
                                 <small>DEF: 100</small>
                             </div> */}
-                            <div className="absolute top-[35%] left-[10%] text-black">
+                            <div className="absolute top-[47%] left-[17%] text-black">
                                 <small>Dragon Black</small>
                             </div>
-                            <img width={60} className="w-full h-full rounded-md" src="/assets/background/battle.png" alt="screen" />
+                            <img width={60} className="w-full h-full rounded-md" src="/assets/background/bg.png" alt="screen" />
                             {petLists.length > 0 &&(
                                 <img className="absolute mg" src={`/assets/animation/${petLists[currentIndexPet].category}/${petLists[currentIndex].pet_evolution_phase}.gif`} alt="pet" />
                             )}
