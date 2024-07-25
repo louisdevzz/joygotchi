@@ -79,12 +79,16 @@ const Battle = () =>{
                                 <small>ATK: 100</small>
                                 <small>DEF: 100</small>
                             </div> */}
-                            <div className="absolute top-[47%] left-[17%] text-black">
-                                <small>Dragon Black</small>
-                            </div>
+                            {
+                                listOponent.length > 0 &&(
+                                    <div className="absolute top-[47%] left-[17%] text-black">
+                                        <small>{listOponent[currentIndex].name}</small>
+                                    </div>
+                                )
+                            }
                             <img width={60} className="w-full h-full rounded-md" src="/assets/background/bg.png" alt="screen" />
-                            {petLists.length > 0 &&(
-                                <img className="absolute mg" src={`/assets/animation/${petLists[currentIndexPet].category}/${petLists[currentIndex].pet_evolution_phase}.gif`} alt="pet" />
+                            {petLists.length > 0 && petLists[currentIndexPet] &&(
+                                <img className="absolute mg" src={`/assets/animation/${petLists[currentIndexPet].category}/${petLists[currentIndexPet].pet_evolution_phase}.gif`} alt="pet" />
                             )}
                             <div className="flex flex-row justify-between">
                                 <div className="absolute position">

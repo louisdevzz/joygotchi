@@ -17,7 +17,7 @@ const BattleLayout = ({petList,setIndex}:{petList: any,setIndex:any}) =>{
         setIndex(newIndex)
     }
     return(
-        petList.length > 0 && <div>
+        petList.length > 0 && petList[currentIndex] && <div>
             <button onClick={goToPrevious}>
                 <img width={10} height={10} className="absolute arrow-left " src="/assets/icon/arrow_left.png" alt="arrow" />
             </button>
