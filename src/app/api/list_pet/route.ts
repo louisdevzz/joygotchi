@@ -3,25 +3,28 @@ import type {
   AccountView,
   CodeResult,
 } from "near-api-js/lib/providers/provider";
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-export async function GET(req: Request) {
-  const provider = new providers.JsonRpcProvider({ url: "https://rpc.testnet.near.org" });
+export async function POST(req: NextRequest) {
+  const {accountID} = await req.json();
+  //console.log("body",accountID)
+  const provider = new providers.JsonRpcProvider({ url: "https://rpc.mainnet.near.org" });
   const allpets = provider.query<CodeResult>({
       request_type: "call_function",
-      account_id: "game1.joychi.testnet",
-      method_name: "get_all_pet_metadata",
+      account_id: process.env.CONTRACT_GAME,
+      method_name: process.env.METHOD_GET_ALL_PET,
       args_base64: 'e30=',
       finality: "optimistic",
     });
-  const petList = JSON.parse(Buffer.from((await allpets).result).toString()).filter((pet:any) => pet.owner_id == "mpcrecovery.testnet" )
+    console.log(JSON.parse(Buffer.from((await allpets).result).toString()))
+  const petList = JSON.parse(Buffer.from((await allpets).result).toString()).filter((pet:any) => pet.owner_id == accountID )
   //console.log(petList)
   const listInfoPet:any = [];
   for(let i=0; i < petList.length; i++){
     const infoPet = provider.query<CodeResult>({
       request_type: "call_function",
-      account_id: "game1.joychi.testnet",
-      method_name: "get_pet_by_pet_id",
+      account_id: process.env.CONTRACT_GAME,
+      method_name: process.env.METHOD_GET_PET_ID,
       args_base64: btoa(`{"pet_id": ${petList[i].pet_id}}`),
       finality: "optimistic",
     })
@@ -32,6 +35,6 @@ export async function GET(req: Request) {
   return  NextResponse.json(listInfoPet,{ status: 200 })
 }
 
-export async function POST(req: Request) {
+export async function GET(req: Request) {
 
 }

@@ -1,15 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    webpack: (config) => {
-        config.resolve = {
-        ...config.resolve,
-        fallback: {
-            fs: false,
-        },
-        };
-        return config;
-    },
     async headers() {
         return [
           {
@@ -23,6 +13,11 @@ const nextConfig = {
             ]
           }
         ]
+    },
+    env:{
+      CONTRACT_GAME: process.env.CONTRACT_GAME,
+      METHOD_GET_ALL_PET: process.env.METHOD_GET_ALL_PET,
+      METHOD_GET_PET_ID: process.env.METHOD_GET_ALL_PET
     }
 };
 
